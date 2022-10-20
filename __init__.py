@@ -66,6 +66,86 @@ class CalamityTrivia(MycroftSkill):
     def trivia(self):
         self.log.info("Comment")
         self.speak_dialog('category')
+        
+    @intent_file_handler('hodgepodge.intent')
+    def hodgepodge_trivia(self):
+        self.log.info("Comment")
+        self.speak_dialog('hodgepodgetrivia')
+        
+    @intent_file_handler('nobrainers.intent')
+    def nobrainers_trivia(self):
+        self.log.info("Comment")
+        self.speak_dialog('nobrainerstrivia')
+        
+    @intent_file_handler('brainstumpers.intent')
+    def brainstumpers_trivia(self):
+        self.log.info("Comment")
+        self.speak_dialog('brainstumperstrivia')
+        
+    @intent_file_handler('thatsentertainment.intent')
+    def thatsentertainment_trivia(self):
+        self.log.info("Comment")
+        self.speak_dialog('thatsentertainment')
+        
+    @intent_file_handler('animallovers.intent')
+    def animallovers_trivia(self):
+        self.log.info("Comment")
+        self.speak_dialog('animallovers')
+        
+    @intent_file_handler('connasewers.intent')
+    def connasewers_trivia(self):
+        self.log.info("Comment")
+        self.speak_dialog('connasewerstrivia')
+        
+    @intent_file_handler('oddballs.intent')
+    def oddballs_trivia(self):
+        self.log.info("Comment")
+        self.speak_dialog('oddballstrivia')
+        
+    @intent_file_handler('aroundtheworld.intent')
+    def aroundtheworldtrivia(self):
+        self.log.info("Comment")
+        self.speak_dialog('aroundtheworldtrivia')
+        
+    @intent_file_handler('backintheday.intent')
+    def backintheday_trivia(self):
+        self.log.info("Comment")
+        self.speak_dialog('backinthedaytrivia')
+        
+    @intent_file_handler('forthekids.intent')
+    def forthekids_trivia(self):
+        self.log.info("Comment")
+        self.speak_dialog('forthekidstrivia')
+        
+    @intent_file_handler('movielovers.intent')
+    def movielovers_trivia(self):
+        self.log.info("Comment")
+        self.speak_dialog('movieloverstrivia')
+        
+    @intent_file_handler('musiclovers.intent')
+    def musiclovers_trivia(self):
+        self.log.info("Comment")
+        self.speak_dialog('musicloverstrivia')
+        
+    @intent_file_handler('forthemasses.intent')
+    def forthemasses_trivia(self):
+        self.log.info("Comment")
+        self.speak_dialog('forthemassestrivia')
+        
+    @intent_file_handler('forthenerds.intent')
+    def cforthenerds_trivia(self):
+        self.log.info("Comment")
+        self.speak_dialog('forthenerdstrivia')
+        
+    @intent_file_handler('sportsfans.intent')
+    def sportsfans_trivia(self):
+        self.log.info("Comment")
+        self.speak_dialog('sportsfanstrivia')
+        
+    @intent_file_handler('forthegeeks.intent')
+    def forthegeeks_trivia(self):
+        self.log.info("Comment")
+        self.speak_dialog('forthegeekstrivia') 
     
     @intent_file_handler('halt_farting.intent')
     def halt_farting(self, message):

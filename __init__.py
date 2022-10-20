@@ -27,7 +27,7 @@ from mycroft import MycroftSkill, intent_file_handler
 from mycroft.skills.audioservice import AudioService
 from mycroft.messagebus.message import Message
 
-class CalamityScared(MycroftSkill):
+class CalamityTrivia(MycroftSkill):
     def __init__(self):
         MycroftSkill.__init__(self)
 
@@ -62,19 +62,10 @@ class CalamityScared(MycroftSkill):
                             + timedelta(seconds=random.randrange(30, 60)),
                             name='random_fart'+str(self.counter))
 
-    @intent_file_handler('farting.intent')
-    def fart_and_comment(self):
-        # repurposed to generate all random comments
+    @intent_file_handler('trivia.intent')
+    def trivia(self):
         self.log.info("Comment")
-        #sound_file = path.join(self.path_to_sound_files,
-        #                       random.choice(self.sound_files))
-        #sound_url = 'file://' + path.join(self.path_to_sound_files,
-        #                                  random.choice(self.sound_files))
-        #tag = TinyTag.get(sound_file)
-        #self.audio_service.play(tracks=sound_url)
-        #self.log.info("Fart duration " + str(int(tag.duration)))
-        #time.sleep(int(tag.duration))
-        self.speak_dialog('noise')
+        self.speak_dialog('category')
     
     @intent_file_handler('halt_farting.intent')
     def halt_farting(self, message):
@@ -88,5 +79,5 @@ class CalamityScared(MycroftSkill):
 
 
 def create_skill():
-    return CalamityScared()
+    return CalamityTrivia()
 

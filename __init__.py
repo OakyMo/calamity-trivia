@@ -40,28 +40,6 @@ class CalamityTrivia(MycroftSkill):
         self.random_farting = False  # flag to indicate whether random farting mode is active
         self.counter = 0  # variable to increment to make the scheduled event unique
 
-    def handle_fart_event(self, message):
-        # repurposed to randomly schedule next random comment
-        self.log.info("Handling fart event")
-        if not self.random_farting:
-            return
-        self.cancel_scheduled_event('random_fart'+str(self.counter))
-        self.counter += 1
-        self.schedule_event(self.handle_fart_event, datetime.now() 
-                            + timedelta(seconds=random.randrange(30, 60)),
-                            name='random_fart'+str(self.counter))
-        self.fart_and_comment()
-
-    @intent_file_handler('random.intent')
-    def handle_random_intent(self, message):
-        # repurposed to start random comments
-        self.log.info("Triggering random farting")
-        #self.speak_dialog('random_farting')
-        self.random_farting = True
-        self.schedule_event(self.handle_fart_event, datetime.now()
-                            + timedelta(seconds=random.randrange(30, 60)),
-                            name='random_fart'+str(self.counter))
-
     @intent_file_handler('trivia.intent')
     def trivia(self):
         self.log.info("Comment")
@@ -146,17 +124,6 @@ class CalamityTrivia(MycroftSkill):
     def forthegeeks_trivia(self):
         self.log.info("Comment")
         self.speak_dialog('forthegeekstrivia') 
-    
-    @intent_file_handler('halt_farting.intent')
-    def halt_farting(self, message):
-        self.log.info("Stopping")
-        # repurposed to stop random comments
-        if self.random_farting:
-            self.log.info("Stopping random farting event")
-            #self.speak_dialog('cancel')
-            self.random_farting = False
-            self.cancel_scheduled_event('random_fart'+str(self.counter))
-
 
 def create_skill():
     return CalamityTrivia()
